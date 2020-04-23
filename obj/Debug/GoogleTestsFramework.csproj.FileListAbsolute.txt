@@ -14,6 +14,14 @@ C:\Users\ivavryk\source\repos\GoogleTestsFramework\bin\Debug\FluentAssertions.xm
 C:\Users\ivavryk\source\repos\GoogleTestsFramework\bin\Debug\nunit.framework.pdb
 C:\Users\ivavryk\source\repos\GoogleTestsFramework\bin\Debug\nunit.framework.xml
 C:\Users\ivavryk\source\repos\GoogleTestsFramework\bin\Debug\WebDriver.xml
+C:\Users\ivavryk\source\repos\GoogleTestsFramework\obj\Debug\GoogleTestsFramework.csprojAssemblyReference.cache
 C:\Users\ivavryk\source\repos\GoogleTestsFramework\obj\Debug\GoogleTestsFramework.csproj.CopyComplete
 C:\Users\ivavryk\source\repos\GoogleTestsFramework\obj\Debug\GoogleTestsFramework.dll
 C:\Users\ivavryk\source\repos\GoogleTestsFramework\obj\Debug\GoogleTestsFramework.pdb
+C:\Users\ivavryk\source\repos\GoogleTestsFramework\bin\Debug\Allure.Commons.dll
+C:\Users\ivavryk\source\repos\GoogleTestsFramework\bin\Debug\MimeTypesMap.dll
+C:\Users\ivavryk\source\repos\GoogleTestsFramework\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ivavryk\source\repos\GoogleTestsFramework\bin\Debug\NUnit.Allure.dll
+C:\Users\ivavryk\source\repos\GoogleTestsFramework\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ivavryk\source\repos\GoogleTestsFramework\bin\Debug\RestSharp.dll
+C:\Users\ivavryk\source\repos\GoogleTestsFramework\bin\Debug\RestSharp.xml

@@ -7,7 +7,7 @@ namespace AutomatedTestsBasic.Pages
 {
     public class GoogleInitialPage : GoogleBasePage
     {
-        private readonly IWebDriver _driver = Tests.TestsBasis.Driver;
+        //private readonly IWebDriver _driver = Tests.TestsBasis.Driver;
 
         public string Url = "https://www.google.com";
         public string Title = "Google";

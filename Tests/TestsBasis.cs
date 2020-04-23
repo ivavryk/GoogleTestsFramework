@@ -1,8 +1,12 @@
 ﻿using System;
 using AutomatedTestsBasicStable.Helper;
+using NUnit.Allure.Core;
 using OpenQA.Selenium;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium.Chrome;
+using System.IO;
+using GoogleTestsFramework.Helper;
 
 namespace AutomatedTestsBasic.Tests
 {
@@ -35,6 +39,10 @@ namespace AutomatedTestsBasic.Tests
         [TearDown]
         public void TearDown()
         {
+            //StopRecording(TestContext.CurrentContext);
+            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
+                TestDetailsHelper.TakeScreenshot(Driver, $"{TestContext.CurrentContext.Test.ClassName}_{TestContext.CurrentContext.Test.Name}");
+            
             Pages.GoogleBasePage.CloseBrowser();
         }
 

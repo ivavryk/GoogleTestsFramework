@@ -7,7 +7,7 @@ namespace AutomatedTestsBasic.Pages
 {
     public class GoogleSearchResultsPage : GoogleBasePage
     {
-        private readonly IWebDriver _driver = Tests.TestsBasis.Driver;
+        //private readonly IWebDriver _driver = Tests.TestsBasis.Driver;
 
         public string SpecificSearchTitle = " - Пошук Google";
         public string RandomSearchTitle = "Google Doodles";

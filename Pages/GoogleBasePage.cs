@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -8,7 +9,7 @@ namespace AutomatedTestsBasic.Pages
 {
     public class GoogleBasePage
     {
-        private readonly IWebDriver _driver = Tests.TestsBasis.Driver;
+        protected readonly IWebDriver _driver = Tests.TestsBasis.Driver;
 
         /// <summary>
         /// Gets current page's title.

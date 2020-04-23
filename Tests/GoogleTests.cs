@@ -1,4 +1,5 @@
 ﻿using System;
+using NUnit.Allure.Attributes;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -6,8 +7,77 @@ using OpenQA.Selenium.Support.UI;
 
 namespace AutomatedTestsBasic.Tests
 {
-    [Author("Igor"), TestFixture, Parallelizable(ParallelScope.All)]
+    [Author("Igor"), TestFixture, AllureFeature]
     class GoogleTests : TestsBasis
+    {
+        [Test, Category("Smoke"), Category("Regression")]
+        public void SearchWord()
+        {
+            const string searchWord = "Webdriver";
+            Pages.GoogleInitialPage.Open();
+
+            //Pages.GoogleInitialPage.ApplySearch(searchWord);
+
+            //Assert.AreEqual(searchWord + Pages.GoogleSearchResultsPage.SpecificSearchTitle,
+            //    Pages.GoogleInitialPage.GetPageTitle(),
+            //    "Incorrect page title.");
+            //Assert.IsTrue(Pages.GoogleSearchResultsPage.SearchResults.Text.Contains(searchWord),
+            //    "Search world is missing in the search results.");
+        }
+
+        [Test, Category("Smoke"), Category("Regression")]
+        public void RandomSearch()
+        {
+            Pages.GoogleInitialPage
+                .Open()
+                .ApplyRandomSearch();
+
+            Pages.GoogleSearchResultsPage.WaitPageToLoad();
+
+            //Assert.AreEqual(Pages.GoogleSearchResultsPage.RandomSearchTitle,
+            //    Pages.GoogleSearchResultsPage.GetPageTitle(),
+            //    "Incorrect page title.");
+        }
+
+        [Test, Category("Regression")]
+        public void InitialTitle()
+        {
+            Pages.GoogleInitialPage.Open();
+
+            //Assert.AreEqual(Pages.GoogleInitialPage.Title, Pages.GoogleInitialPage.GetPageTitle());
+        }
+
+        [Test, Category("Regression")]
+        public void BrowserNavigation()
+        {
+            Pages.GoogleInitialPage.Open();
+
+            //Pages.GoogleInitialPage
+            //    .Open()
+            //    .ApplyRandomSearch();
+
+            //Pages.GoogleSearchResultsPage.NavigateBackInBrowser();
+            //Pages.GoogleInitialPage.NavigateForwardInBrowser();
+            //Pages.GoogleSearchResultsPage.NavigateBackInBrowser();
+            //Pages.GoogleInitialPage.RefreshPageInBrowser();
+
+            //Assert.Multiple(() =>
+            //{
+            //    Assert.AreEqual(Pages.GoogleInitialPage.Title,
+            //        Pages.GoogleInitialPage.GetBrowserTitle(),
+            //        $"Page title is incorrect.\nPage source: {Pages.GoogleInitialPage.GetPageSource()}");
+            //    Assert.IsTrue(Pages.GoogleInitialPage.TxtSearch.Displayed,
+            //        "Search field is not displayed.");
+            //    Assert.IsTrue(Pages.GoogleInitialPage.BtnSearch.Displayed,
+            //        "Search button is not displayed.");
+            //    Assert.IsTrue(Pages.GoogleInitialPage.BtnRandomSearch.Displayed,
+            //        "Random search button is not displayed.");
+            //});
+        }
+    }
+
+    [Author("Igor"), TestFixture, Parallelizable(ParallelScope.Fixtures), AllureFeature]
+    class GoogleTestsCopy : TestsBasis
     {
         [Test, Category("Smoke"), Category("Regression")]
         public void SearchWord()
@@ -16,13 +86,13 @@ namespace AutomatedTestsBasic.Tests
 
             Pages.GoogleInitialPage.Open();
 
-            Pages.GoogleInitialPage.ApplySearch(searchWord);
+            //Pages.GoogleInitialPage.ApplySearch(searchWord);
 
-            Assert.AreEqual(searchWord + Pages.GoogleSearchResultsPage.SpecificSearchTitle,
-                Pages.GoogleInitialPage.GetPageTitle(),
-                "Incorrect page title.");
-            Assert.IsTrue(Pages.GoogleSearchResultsPage.SearchResults.Text.Contains(searchWord),
-                "Search world is missing in the search results.");
+            //Assert.AreEqual(searchWord + Pages.GoogleSearchResultsPage.SpecificSearchTitle,
+            //    Pages.GoogleInitialPage.GetPageTitle(),
+            //    "Incorrect page title.");
+            //Assert.IsTrue(Pages.GoogleSearchResultsPage.SearchResults.Text.Contains(searchWord),
+            //    "Search world is missing in the search results.");
         }
 
         [Test, Category("Smoke"), Category("Regression")]
@@ -50,35 +120,37 @@ namespace AutomatedTestsBasic.Tests
         [Test, Category("Regression")]
         public void BrowserNavigation()
         {
-            Pages.GoogleInitialPage
-                .Open()
-                .ApplyRandomSearch();
+            Pages.GoogleInitialPage.Open();
 
-            Pages.GoogleSearchResultsPage.NavigateBackInBrowser();
-            Pages.GoogleInitialPage.NavigateForwardInBrowser();
-            Pages.GoogleSearchResultsPage.NavigateBackInBrowser();
-            Pages.GoogleInitialPage.RefreshPageInBrowser();
+            //Pages.GoogleInitialPage
+            //    .Open()
+            //    .ApplyRandomSearch();
 
-            Assert.Multiple(() =>
-            {
-                Assert.AreEqual(Pages.GoogleInitialPage.Title,
-                    Pages.GoogleInitialPage.GetBrowserTitle(),
-                    $"Page title is incorrect.\nPage source: {Pages.GoogleInitialPage.GetPageSource()}");
-                Assert.IsTrue(Pages.GoogleInitialPage.TxtSearch.Displayed,
-                    "Search field is not displayed.");
-                Assert.IsTrue(Pages.GoogleInitialPage.BtnSearch.Displayed,
-                    "Search button is not displayed.");
-                Assert.IsTrue(Pages.GoogleInitialPage.BtnRandomSearch.Displayed,
-                    "Random search button is not displayed.");
-            });
+            //Pages.GoogleSearchResultsPage.NavigateBackInBrowser();
+            //Pages.GoogleInitialPage.NavigateForwardInBrowser();
+            //Pages.GoogleSearchResultsPage.NavigateBackInBrowser();
+            //Pages.GoogleInitialPage.RefreshPageInBrowser();
+
+            //Assert.Multiple(() =>
+            //{
+            //    Assert.AreEqual(Pages.GoogleInitialPage.Title,
+            //        Pages.GoogleInitialPage.GetBrowserTitle(),
+            //        $"Page title is incorrect.\nPage source: {Pages.GoogleInitialPage.GetPageSource()}");
+            //    Assert.IsTrue(Pages.GoogleInitialPage.TxtSearch.Displayed,
+            //        "Search field is not displayed.");
+            //    Assert.IsTrue(Pages.GoogleInitialPage.BtnSearch.Displayed,
+            //        "Search button is not displayed.");
+            //    Assert.IsTrue(Pages.GoogleInitialPage.BtnRandomSearch.Displayed,
+            //        "Random search button is not displayed.");
+            //});
         }
     }
 
-    [TestFixture, Parallelizable(ParallelScope.All)]
+    [Author("Igor"), TestFixture, Parallelizable(ParallelScope.Fixtures), AllureFeature]
     class OtherTests
     {
         [Test]
-        public void ComplexNumberTest()
+        public void ComplexNumberTestFail()
         {
             Assert.Multiple(() =>
             {
