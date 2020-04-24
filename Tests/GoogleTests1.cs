@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Allure.Attributes;
+using NUnit.Allure.Core;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -7,7 +8,9 @@ using OpenQA.Selenium.Support.UI;
 
 namespace AutomatedTestsBasic.Tests
 {
-    [Author("Igor"), TestFixture, AllureFeature]
+    [Author("Igor"), TestFixture]
+    [AllureNUnit]
+    [AllureSuite("Test Suite #1")]
     class GoogleTests1 : TestsBasis
     {
         [Test, Category("Smoke"), Category("Regression")]
@@ -34,12 +37,14 @@ namespace AutomatedTestsBasic.Tests
         [Test, Category("Smoke"), Category("Regression")]
         public void RandomSearch()
         {
+            TestContext.WriteLine("Open google initial page and apply random search.");
             Pages.GoogleInitialPage
                 .Open()
                 .ApplyRandomSearch();
 
             Pages.GoogleSearchResultsPage.WaitPageToLoad();
 
+            TestContext.WriteLine("Check title.");
             Assert.AreEqual(Pages.GoogleSearchResultsPage.RandomSearchTitle,
                 Pages.GoogleSearchResultsPage.GetPageTitle(),
                 "Incorrect page title.");
@@ -48,25 +53,28 @@ namespace AutomatedTestsBasic.Tests
         [Test, Category("Regression")]
         public void InitialTitle()
         {
+            TestContext.WriteLine("Open google initial page.");
             Pages.GoogleInitialPage.Open();
 
+            TestContext.WriteLine("Check google title of initial page.");
             Assert.AreEqual(Pages.GoogleInitialPage.Title, Pages.GoogleInitialPage.GetPageTitle());
         }
 
         [Test, Category("Regression")]
         public void BrowserNavigation()
         {
-            Pages.GoogleInitialPage.Open();
-
+            TestContext.WriteLine("Open google initial page and apply random search.");
             Pages.GoogleInitialPage
                 .Open()
                 .ApplyRandomSearch();
 
+            TestContext.WriteLine("Check navigation.");
             Pages.GoogleSearchResultsPage.NavigateBackInBrowser();
             Pages.GoogleInitialPage.NavigateForwardInBrowser();
             Pages.GoogleSearchResultsPage.NavigateBackInBrowser();
             Pages.GoogleInitialPage.RefreshPageInBrowser();
 
+            TestContext.WriteLine("Verify results.");
             Assert.Multiple(() =>
             {
                 Assert.AreEqual(Pages.GoogleInitialPage.Title,

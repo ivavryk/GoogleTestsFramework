@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Allure.Attributes;
+using NUnit.Allure.Core;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -7,7 +8,9 @@ using OpenQA.Selenium.Support.UI;
 
 namespace AutomatedTestsBasic.Tests
 {
-    [Author("Igor"), TestFixture, AllureFeature]
+    [Author("Igor"), TestFixture]
+    [AllureNUnit]
+    [AllureSuite("Test Suite #1")]
     class GoogleTests3 : TestsBasis
     {
         [Test, Category("Smoke"), Category("Regression")]
