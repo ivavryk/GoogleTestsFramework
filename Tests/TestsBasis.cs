@@ -9,6 +9,7 @@ using System.IO;
 using Allure.Commons;
 using GoogleTestsFramework.Helper;
 using TestResult = NUnit.Framework.Internal.TestResult;
+using NUnit.Allure.Attributes;
 
 namespace AutomatedTestsBasic.Tests
 {
@@ -42,9 +43,11 @@ namespace AutomatedTestsBasic.Tests
         public void TearDown()
         {
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
-                TestDetailsHelper.TakeScreenshot(Driver, $"{TestContext.CurrentContext.Test.ClassName}_{TestContext.CurrentContext.Test.Name}");
-
-            
+            {
+                string path = $"{TestContext.CurrentContext.Test.ClassName}_{TestContext.CurrentContext.Test.Name}";
+                TestDetailsHelper.TakeScreenshot(Driver, path);
+                AllureLifecycle.Instance.AddAttachment(path);
+            }
 
             Pages.GoogleBasePage.CloseBrowser();
         }

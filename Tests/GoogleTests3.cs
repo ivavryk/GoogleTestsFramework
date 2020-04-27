@@ -10,7 +10,7 @@ namespace AutomatedTestsBasic.Tests
 {
     [Author("Igor"), TestFixture]
     [AllureNUnit]
-    [AllureSuite("Test Suite #1")]
+    [AllureSuite("Test Suite #3")]
     class GoogleTests3 : TestsBasis
     {
         [Test, Category("Smoke"), Category("Regression")]
