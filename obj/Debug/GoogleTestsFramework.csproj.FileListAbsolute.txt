@@ -18,3 +18,4 @@ C:\Users\ivavryk\source\repos\GoogleTestsFramework\bin\Debug\WebDriver.xml
 C:\Users\ivavryk\source\repos\GoogleTestsFramework\obj\Debug\GoogleTestsFramework.csproj.CopyComplete
 C:\Users\ivavryk\source\repos\GoogleTestsFramework\obj\Debug\GoogleTestsFramework.dll
 C:\Users\ivavryk\source\repos\GoogleTestsFramework\obj\Debug\GoogleTestsFramework.pdb
+C:\Users\ivavryk\source\repos\GoogleTestsFramework\obj\Debug\GoogleTestsFramework.csprojAssemblyReference.cache
