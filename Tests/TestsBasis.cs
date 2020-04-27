@@ -44,25 +44,24 @@ namespace AutomatedTestsBasic.Tests
         {
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
-                string path = $"{TestContext.CurrentContext.Test.ClassName}_{TestContext.CurrentContext.Test.Name}";
-                TestDetailsHelper.TakeScreenshot(Driver, path);
-                AllureLifecycle.Instance.AddAttachment(path);
+                TestDetailsHelper.TakeScreenshot(Driver,
+                    $"{TestContext.CurrentContext.Test.ClassName}_{TestContext.CurrentContext.Test.Name}");
             }
 
             Pages.GoogleBasePage.CloseBrowser();
         }
 
-        [OneTimeSetUp]
-        public void OneTimeSetUp()
-        {
+        //    [OneTimeSetUp]
+        //    public void OneTimeSetUp()
+        //    {
 
-        }
+        //    }
 
-        [OneTimeTearDown]
-        public void OneTimeTearDown()
-        {
+        //    [OneTimeTearDown]
+        //    public void OneTimeTearDown()
+        //    {
 
-        }
+        //    }
     }
 }
 
